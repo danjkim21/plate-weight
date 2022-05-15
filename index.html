@@ -10,7 +10,7 @@
 
     <!-- external CSS link -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/normalize.css" />
@@ -21,24 +21,24 @@
     <!-- app container - mobile-first oriented -->
     <main id="appContainer">
       <!-- app title -->
-      <h1>plateWeight - Calculator</h1>
+      <nav class="flexBox">
+        <h1>plateWeight</h1>
+      </nav>
 
       <!-- section containing input and button to calculate plates -->
-      <section id="calculationsContainer" class="innerContainer">
-        <input type="number" name="" id="getWeight" min="0"/>
+      <section id="calculationsContainer" class="innerContainer flexBox">
+        <input type="number" name="" min="0" placeholder="Input Weight" id="getWeight"/>
         <button id="calculatePlates">Calculate</button>
       </section>
 
       <section id="displayPlates">
-
+        <h2 id="resultsTextDesc"></h2>
       </section>
 
       <!-- section for displaying past calculations -->
       <section id="historyContainer" class="innerContainer">
-        <h2>History</h2>
-        <ul id="listHistory">
-          
-        </ul>
+        <h3>History</h3>
+        <ul id="listHistory"></ul>
       </section>
     </main>
 

@@ -2,22 +2,34 @@
 let getWeightInpt = document.querySelector('#getWeight');
 let calculatePlatesBtn = document.querySelector('#calculatePlates');
 let displayPlates = document.querySelector('#displayPlates');
+let resultsTextDesc = document.querySelector('#resultsTextDesc');
 let listHistory = document.querySelector('#listHistory');
 
 // *********** Event Listeners *********** //
-// Get user Inputed Weight from input when 'click' on calculatePlatesBtn
+// when 'click' on calculatePlatesBtn -- get user Inputed Weight from input
 calculatePlatesBtn.addEventListener('click', () => {
   // create variable userWeightInput that saves the value from the input
   let userWeightInput = getWeightInpt.value;
+  // reset text result area
+  resultsTextDesc.innerHTML = '';
 
   // Tests to see if input and calculation function work,
   //  see ---- calcPlates() ---- function below
   console.log(userWeightInput);
   console.log(calcPlates(userWeightInput));
 
-  // Inputs user entered weight into the history,
-  // see ---- addToHistory() ---- function below
-  addToHistory(userWeightInput);
+  // Conditional: if weight is less than 45, return 'incorrect input' since the bar weights 45
+  if (userWeightInput < 45) {
+    resultsTextDesc.innerHTML = 'Incorrect Input';
+  } else {
+    // Inputs the string of the plates calculation to the results area 
+    resultsTextDesc.innerHTML = calcPlates(userWeightInput).toString();
+
+    // Inputs user entered weight into the history,
+    // see ---- addToHistory() ---- function below
+    addToHistory(userWeightInput);
+    
+  }
 });
 
 // *********** Functions *********** //

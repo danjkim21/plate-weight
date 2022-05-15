@@ -5,6 +5,41 @@
 /* Box Model Hack */
 * {
   box-sizing: border-box;
+  font-family: 'Inter', Helvetica, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#calculatePlates,
+#getWeight {
+  color: #afbac6;
+  /* font-weight: 400; */
+}
+p,
+li,
+span {
+  color: #79838f;
+}
+h1 {
+  margin: 0;
+  color: #6599ee;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+.flexBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /******************************************
@@ -13,33 +48,59 @@
 body {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #23272d;
 }
 #appContainer {
-  /* display: flex;
-  justify-content: center;
-  flex-wrap: wrap; */
-  height: 700px;
-  width: 400px;
-  border: 1px solid red;
+  text-align: center;
+  height: 625px;
+  width: 375px;
+  border: 1px solid #464c55;
+  border-radius: 4px;
+}
+#calculationsContainer,
+#displayPlates,
+#historyContainer {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+nav {
+  height: 10%;
+  background-color: #2e333a;
+  border-bottom: 1px solid #464c55;
 }
 #calculationsContainer {
-  height: 10%;
-  border: 1px solid blue;
+  height: 15%;
 }
 #displayPlates {
   height: 40%;
-  border: 1px solid blueviolet;
 }
 #historyContainer {
-  height: 35%;
+  height: 32.5%;
   overflow: auto;
-  background: #fff;
-  border: 1px solid green;
+  border-top: 1px solid #464c55;
 }
-li {
-  list-style-type: none;
+#getWeight,
+#calculatePlates {
+  height: 45px;
+  width: 45%;
+  background-color: #2e333a;
+  border: 1px solid #464c55;
+  border-radius: 8px;
+}
+#getWeight {
+  padding-left: 15px;
+}
+#calculatePlates {
+  margin-left: 5px;
 }
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+#calculatePlates:hover  {
+  background-color: #464c55;
+  border: 1px solid #78838f;
+  cursor:pointer;
+}
