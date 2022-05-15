@@ -1,0 +1,45 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+body {
+  display: flex;
+  justify-content: center;
+}
+#appContainer {
+  /* display: flex;
+  justify-content: center;
+  flex-wrap: wrap; */
+  height: 700px;
+  width: 400px;
+  border: 1px solid red;
+}
+#calculationsContainer {
+  height: 10%;
+  border: 1px solid blue;
+}
+#displayPlates {
+  height: 40%;
+  border: 1px solid blueviolet;
+}
+#historyContainer {
+  height: 35%;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid green;
+}
+li {
+  list-style-type: none;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
