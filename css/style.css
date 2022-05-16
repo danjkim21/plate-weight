@@ -26,7 +26,7 @@ span {
 h1 {
   margin: 0;
   color: #6599ee;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   letter-spacing: 0.5px;
 }
 ul {
@@ -66,9 +66,10 @@ body {
   padding-right: 10px;
 }
 nav {
-  height: 10%;
+  height: 8.5%;
   background-color: #2e333a;
   border-bottom: 1px solid #464c55;
+  border-radius: 4px 4px 0 0;
 }
 #calculationsContainer {
   height: 15%;
@@ -100,8 +101,8 @@ nav {
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
-#calculatePlates:hover  {
+#calculatePlates:hover {
   background-color: #464c55;
   border: 1px solid #78838f;
-  cursor:pointer;
+  cursor: pointer;
 }
