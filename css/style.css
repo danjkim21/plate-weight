@@ -38,23 +38,93 @@ li {
 }
 .flexBox {
   display: flex;
-  justify-content: center;
   align-items: center;
+}
+.flexBox.centerApp {
+  justify-content: center;
+}
+.flexBox.two {
+  justify-content: space-between;
+}
+
+.navBtns {
+  color: #afbac6;
+  font-size: 1.25rem;
 }
 
 /******************************************
 /* LAYOUT
 /*******************************************/
-body {
+
+/* ---------- NAV STYLING ---------- */
+nav {
+  justify-content: space-around;
+  height: 3.5rem;
+  background-color: #2e333a;
+  border-bottom: 1px solid #464c55;
+  border-radius: 4px 4px 0 0;
+}
+.wrapper {
+  height: 100vh;
+  /* This part is important for centering the content */
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+.wrapper a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 3px;
+}
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(77, 77, 77, 0.7);
+  transition: all 0.4s;
+}
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+.modal__content {
+  border-radius: 4px;
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+  height: 90vh;
+  background: #23272d;
+  padding: 1em 2em;
+}
+.modal__footer {
+  color: #afbac6;
+}
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #585858;
+  text-decoration: none;
+}
+
+/* ---------- BODY STYLING ---------- */
+body {
   height: 100vh;
   background-color: #23272d;
 }
+
+/* ---------- APP CONTAINER STYLING ---------- */
 #appContainer {
   text-align: center;
-  height: 625px;
+  height: 90vh;
   width: 375px;
   border: 1px solid #464c55;
   border-radius: 4px;
@@ -65,13 +135,8 @@ body {
   padding-left: 10px;
   padding-right: 10px;
 }
-nav {
-  height: 8.5%;
-  background-color: #2e333a;
-  border-bottom: 1px solid #464c55;
-  border-radius: 4px 4px 0 0;
-}
 #calculationsContainer {
+  justify-content: center;
   height: 15%;
 }
 #displayPlates {
@@ -106,3 +171,62 @@ nav {
   border: 1px solid #78838f;
   cursor: pointer;
 }
+/* ---------- Button toggle ----------*/
+.onoffswitch {
+  position: relative;
+  width: 55px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  height: 20px;
+  padding: 0;
+  line-height: 20px;
+  border: 0px solid #ffffff;
+  border-radius: 30px;
+  background-color: #9e9e9e;
+}
+.onoffswitch-label:before {
+  content: '';
+  display: block;
+  width: 30px;
+  margin: -5px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 31px;
+  border-radius: 30px;
+  box-shadow: 0 6px 12px 0px #757575;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background-color: #42a5f5;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label,
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  border-color: #42a5f5;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  right: 0px;
+  background-color: #2196f3;
+  box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- Dark Mode Toggle Style ---------- */
+.darkModeToggle {
+  background-color: #ffffff;
+  color: #26292e;
+}
+

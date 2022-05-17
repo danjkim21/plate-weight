@@ -9,6 +9,10 @@
     <title>plateWeight</title>
 
     <!-- external CSS link -->
+    <script
+      src="https://kit.fontawesome.com/a2f02755e4.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
@@ -18,38 +22,63 @@
   </head>
 
   <body>
-    <!-- app container - mobile-first oriented -->
-    <main id="appContainer">
-      <!-- app title -->
-      <nav class="flexBox">
-        <h1>plateWeight</h1>
-      </nav>
+    <!-- app Nav -->
+    <nav class="flexBox">
+      <!-- app Title -->
+      <h1>plateWeight</h1>
 
-      <!-- section containing input and button to calculate plates -->
-      <section id="calculationsContainer" class="innerContainer flexBox">
-        <input
-          type="number"
-          name=""
-          min="0"
-          placeholder="Input Weight"
-          inputmode="numeric"
-          pattern="[0-9]*"
-          id="getWeight"
-        />
-        <button id="calculatePlates">Calculate</button>
+      <!-- Settings - Nav Btn with modal -->
+      <section class="wrapper">
+        <a class="navBtns" href="#demo-modal"><i class="fa-solid fa-bars"></i></a>
       </section>
+      <section id="demo-modal" class="modal">
+        <section class="modal__content">
+          <h3>Settings</h3>
 
-      <section id="displayPlates">
-        <h2 id="resultsTextDesc"></h2>
-      </section>
+          <section class="flexBox two">
+            <p>Dark Mode</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
+              <label class="onoffswitch-label" for="myonoffswitch"></label>
+          </div>
+          </section>
 
-      <!-- section for displaying past calculations -->
-      <section id="historyContainer" class="innerContainer">
-        <h3>History</h3>
-        <ul id="listHistory"></ul>
+          <section class="modal__footer">&copy;	2022 Daniel Jay-Young Kim</section>
+          <a href="#" class="modal__close">&times;</a>
+        </section>
       </section>
-    </main>
-    
+    </nav>
+
+    <!-- Center appContainer -->
+    <section class="flexBox centerApp">
+      <main id="appContainer">
+        <!-- section containing input and button to calculate plates -->
+        <section id="calculationsContainer" class="innerContainer flexBox">
+          <input
+            type="number"
+            name=""
+            min="0"
+            placeholder="Input Weight"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            id="getWeight"
+          />
+          <button id="calculatePlates">Calculate</button>
+        </section>
+
+        <section id="displayPlates">
+          <h2 id="resultsTextDesc"></h2>
+        </section>
+
+        <!-- section for displaying past calculations -->
+        <section id="historyContainer" class="innerContainer">
+          <h3>History</h3>
+          <ul id="listHistory"></ul>
+        </section>
+      </main>
+    </section>
+    <!-- app container -->
+
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>

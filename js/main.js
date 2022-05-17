@@ -4,6 +4,7 @@ let calculatePlatesBtn = document.querySelector('#calculatePlates');
 let displayPlates = document.querySelector('#displayPlates');
 let resultsTextDesc = document.querySelector('#resultsTextDesc');
 let listHistory = document.querySelector('#listHistory');
+let darkModeToggle = document.querySelector('#myonoffswitch');
 
 // *********** Event Listeners *********** //
 // when 'click' on calculatePlatesBtn -- get user Inputed Weight from input
@@ -31,6 +32,13 @@ calculatePlatesBtn.addEventListener('click', () => {
     
   }
 });
+
+// when 'click' on darkModeToggle -- change dark to light mode
+darkModeToggle.addEventListener('click', () => {
+  // toggles darkModeToggle css class to body
+  let bodyElem = document.body;
+  bodyElem.classList.toggle("darkModeToggle");
+})
 
 // *********** Functions *********** //
 // ---- calcPlates() ---- Calculates the plate weight on each side of the barbell
@@ -70,3 +78,4 @@ function addToHistory(historyInput) {
   weightHistoryEntry.innerHTML = historyInput;
   listHistory.appendChild(weightHistoryEntry);
 }
+
