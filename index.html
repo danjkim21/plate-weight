@@ -70,11 +70,21 @@
           <h2 id="resultsTextDesc"></h2>
         </section>
 
+        <!-- section toggle - switch between history & warm up reps calc -->
+        <section id="sectionToggle" class="flexBox centerApp">
+          <button id="historyToggleBtn" class="toggleDisplayBtn active">History</button>
+          <button id="warmUpToggleBtn" class="toggleDisplayBtn">Warm Up</button>
+        </section>
+
         <!-- section for displaying past calculations -->
         <section id="historyContainer" class="innerContainer">
-          <h3>History</h3>
           <ul id="listHistory"></ul>
         </section>
+
+        <section id="warmUpContainer" class="innerContainer hidden">
+          <ul id="listWarmUpReps"></ul>
+        </section>
+
       </main>
     </section>
     <!-- app container -->
