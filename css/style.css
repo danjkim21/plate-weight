@@ -148,11 +148,36 @@ body {
 #displayPlates {
   height: 40%;
 }
+/* ---------- Plates Styling ---------- */
+#weight-45,#weight-35, #weight-25, #weight-10, #weight-5 {
+  width: 25px;
+  background-color: #2196f3;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#weight-45 {
+  height: 155px;
+}
+#weight-35 {
+  height: 100px;
+}
+#weight-25 {
+  height: 85px;
+}
+#weight-10 {
+  height: 55px;
+}
+#weight-5 {
+  height: 45px;
+}
+
 /* ---------- Section Toggle Area ---------- */
 #sectionToggle {
   height: 6.5%;
 }
-
 /* ---------- History & Warm Up Display Areas ---------- */
 #historyContainer,
 #warmUpContainer {

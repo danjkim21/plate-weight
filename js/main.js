@@ -40,7 +40,20 @@ calculatePlatesBtn.addEventListener('click', () => {
     resultsTextDesc.innerHTML = 'Incorrect Input';
   } else {
     // Inputs the string of the plates calculation to the results area
-    resultsTextDesc.innerHTML = calcPlates(userWeightInput).toString();
+    let platesResult = calcPlates(userWeightInput);
+    // loop through plates result array and return each in a div to the DOM
+    platesResult.forEach((elem, ind) => {
+      let plateWeight = document.createElement('div');
+      plateWeight.innerHTML = elem;
+      plateWeight.setAttribute('id', `weight-${elem}`);
+      // append each plate to the displayPlates container
+      displayPlates.appendChild(plateWeight);
+
+      // ************* TO FIX *************
+      // Can't set attribute to a decimal. (eg. id="2.25")
+      // 
+      // ************* ASAP *************
+    })
 
     // Inputs user entered weight into the history container,
     // see ---- addToHistory() ---- in functions section below
