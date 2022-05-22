@@ -149,7 +149,11 @@ body {
   height: 40%;
 }
 /* ---------- Plates Styling ---------- */
-#weight-45,#weight-35, #weight-25, #weight-10, #weight-5 {
+#weight-45,
+#weight-35,
+#weight-25,
+#weight-10,
+#weight-5 {
   width: 25px;
   background-color: #2196f3;
   margin-left: 2.5px;
@@ -186,6 +190,10 @@ body {
   padding-bottom: 10px;
   padding-top: 45px;
   /* border-top: 1px solid #464c55; */
+}
+/* ---------- History List styling ---------- */
+.weightHistoryItem {
+  text-decoration: underline;
 }
 
 /* ---------- Buttons styling ---------- */
@@ -232,6 +240,10 @@ body {
   border: 1px solid #78838f;
   cursor: pointer;
 }
+.weightHistoryItem:hover {
+  cursor: pointer;
+}
+
 /* ---------- Button toggle ----------*/
 .onoffswitch {
   position: relative;

@@ -17,27 +17,30 @@ let warmUpToggleBtn = document.querySelector('#warmUpToggleBtn');
 let historyContainer = document.querySelector('#historyContainer');
 let warmUpContainer = document.querySelector('#warmUpContainer');
 let listWarmUpReps = document.querySelector('#listWarmUpReps');
+// plate weight history item selector
+let accessHistoryItem = document.querySelector('.weightHistoryItem')
 
 /*************************************** 
 Event Listeners
 ****************************************/
 
-// ********** on 'click' on calculatePlatesBtn - get user Inputed Weight from input
+// ********** on 'click' on calculatePlatesBtn - get user Inputed Weight from input **********
 calculatePlatesBtn.addEventListener('click', () => {
   // create variable userWeightInput that saves the value from the input
   let userWeightInput = getWeightInpt.value;
   // reset text result area and warmup list container
-  resultsTextDesc.innerHTML = '';
+  displayPlates.innerHTML = '';
   listWarmUpReps.innerHTML = '';
 
   // Tests to see if input and calculation function work,
-  //  see ---- calcPlates() ---- in functions section below
+  //  see ---- calcPlates() ---- in Main functions section below
   console.log(userWeightInput);
   console.log(calcPlates(userWeightInput));
 
   // Conditional: if weight is less than 45, return 'incorrect input' since the bar weights 45
   if (userWeightInput < 45) {
     resultsTextDesc.innerHTML = 'Incorrect Input';
+    Î;
   } else {
     // Inputs the string of the plates calculation to the results area
     let platesResult = calcPlates(userWeightInput);
@@ -50,51 +53,35 @@ calculatePlatesBtn.addEventListener('click', () => {
       displayPlates.appendChild(plateWeight);
 
       // ************* TO FIX *************
-      // Can't set attribute to a decimal. (eg. id="2.25")
-      // 
+      // Can't set attribute (eg. class or id) with a decimal. (eg. id="2.25")
       // ************* ASAP *************
-    })
+    });
 
     // Inputs user entered weight into the history container,
-    // see ---- addToHistory() ---- in functions section below
+    // see ---- addToHistory() ---- in Main functions section below
     addToHistory(userWeightInput);
 
     // Inputs user entered weight, calculates warm up weights and adds to Warm Up container,
-    // see ---- calcWarmUp() ---- in functions section below
+    // see ---- calcWarmUp() ---- in Main functions section below
     calcWarmUp(userWeightInput);
   }
 });
 
-// ********** on 'click' on darkModeToggle -- change dark to light mode
-darkModeToggle.addEventListener('click', () => {
-  // toggles darkModeToggle css class to body
-  let bodyElem = document.body;
-  bodyElem.classList.toggle('darkModeToggle');
-});
+// ********** on 'click' on darkModeToggle -- change dark to light mode **********
+// see ---- toggleDarkMode() ---- in accessory functions section below
+darkModeToggle.addEventListener('click', toggleDarkMode);
 
-// ********** on 'click' on either historyToggleBtn or warmUpToggleBtn -- swap toggle containers
-historyToggleBtn.addEventListener('click', () => {
-  // Toggle between history & warmUp Button
-  historyToggleBtn.classList.toggle('active');
-  warmUpToggleBtn.classList.toggle('active');
+// ********** on 'click' on either historyToggleBtn or warmUpToggleBtn -- swap toggle containers **********
+// see ---- toggleHistoryBtn() ---- in accessory functions section below
+historyToggleBtn.addEventListener('click', toggleHistoryBtn);
+// see ---- toggleWarmUpBtn() ---- in accessory functions section below
+warmUpToggleBtn.addEventListener('click', toggleWarmUpBtn);
 
-  // Toggle between history & warmUp Containers
-  historyContainer.classList.toggle('hidden');
-  warmUpContainer.classList.toggle('hidden');
-});
-
-warmUpToggleBtn.addEventListener('click', () => {
-  // Toggle back between warmUp & history Button
-  warmUpToggleBtn.classList.toggle('active');
-  historyToggleBtn.classList.toggle('active');
-
-  // Toggle back between warmUp & history Containers
-  warmUpContainer.classList.toggle('hidden');
-  historyContainer.classList.toggle('hidden');
-});
+// ********** on 'click' on accessHistoryItem, take text and insert it as value for getWeightInpt **********
+// accessHistoryItem.addEventListener('click', accessHistoryItemToValue) - test code, does not work ATM
 
 /*************************************** 
-Functions
+Main Functions
 ****************************************/
 
 // -------- calcPlates() -------- Calculates the plate weight on each side of the barbell
@@ -127,10 +114,16 @@ function calcPlates(
 
 // -------- addToHistory() -------- Inputs user entered weight into the history ul list as li
 function addToHistory(historyInput) {
-  // Inputs user entered weight into the history ul list as li
+  // Inputs user entered weight into the history ul list as li...
   let weightHistoryEntry = document.createElement('li');
-  weightHistoryEntry.innerHTML = historyInput;
+  weightHistoryEntry.setAttribute('id', `plateEntry-${historyInput}`)
   listHistory.appendChild(weightHistoryEntry);
+  //  ...nested in an a tag
+  let weightHistoryItem = document.createElement('a');
+  weightHistoryItem.setAttribute('class', 'weightHistoryItem')
+  weightHistoryItem.innerHTML = historyInput;
+  weightHistoryEntry.appendChild(weightHistoryItem);
+
 }
 
 // -------- calcWarmUp() -------- Calculates warmup reps required
@@ -154,3 +147,36 @@ function calcWarmUp(totalWeight, barWeight = 45) {
     listWarmUpReps.appendChild(warmUpWeightEntry);
   });
 }
+
+/*************************************** 
+Accessory Functions
+****************************************/
+
+// -------- toggleDarkMode() -------- toggles darkModeToggle css class to body
+function toggleDarkMode() {
+  let bodyElem = document.body;
+  bodyElem.classList.toggle('darkModeToggle');
+}
+
+// -------- toggleHistoryBtn() -------- toggles between history & warmUp containers
+function toggleHistoryBtn() {
+  // Toggle between history & warmUp Button
+  historyToggleBtn.classList.toggle('active');
+  warmUpToggleBtn.classList.toggle('active');
+  // Toggle between history & warmUp Containers
+  historyContainer.classList.toggle('hidden');
+  warmUpContainer.classList.toggle('hidden');
+}
+// -------- toggleWarmUpBtn() -------- toggles back from warmUp to history containers
+function toggleWarmUpBtn() {
+  // Toggle back between warmUp & history Button
+  warmUpToggleBtn.classList.toggle('active');
+  historyToggleBtn.classList.toggle('active');
+  // Toggle back between warmUp & history Containers
+  warmUpContainer.classList.toggle('hidden');
+  historyContainer.classList.toggle('hidden');
+}
+// -------- accessHistoryItemToValue() -------- test code, does not work ATM
+// function accessHistoryItemToValue() {
+//   console.log(accessHistoryItem.innerHTML);
+// }
